@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Chúc Mừng Sinh Nhật 🎂</title>
+
+<link href="https://fonts.google.com/specimen/Google+Sans+Flex?query=sans+flex&preview.script=Latn" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Google Sans Flex', monospace;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff9ec4,#ffd6a5,#fff6b7);
+    background-size:400% 400%;
+    animation:bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+    from{background-position:left;}
+    to{background-position:right;}
+}
+
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+h1{
+    font-size:60px;
+    text-shadow:0 0 20px rgba(0,0,0,.3);
+    animation:pop 1s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+}
+
+p{
+    margin-top:20px;
+    font-size:20px;
+    max-width:700px;
+}
+
+button{
+    margin-top:35px;
+    padding:16px 40px;
+    border:none;
+    border-radius:40px;
+    background:white;
+    color:#ff4d88;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+#gift{
+    display:none;
+    margin-top:35px;
+    font-size:24px;
+    animation:fade .8s;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+}
+
+.cake{
+    font-size:120px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* Confetti */
+
+.confetti{
+    position:absolute;
+    width:12px;
+    height:12px;
+    top:-20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+.star{
+    position:absolute;
+    color:white;
+    animation:twinkle 2s infinite;
+    opacity:.7;
+}
+
+@keyframes twinkle{
+    50%{
+        transform:scale(1.8);
+        opacity:1;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="cake">🎂</div>
+
+<h1>Chúc Mừng Sinh Nhật!</h1>
+
+<p>
+Chúc Tường Vy sinh nhật vui vẻ nhaaa 
+
+</p>
+<p>
+    btw tui bí ý tưởng r :) 
+</p>
+
+<button onclick="openGift()">
+Mở quà 
+</button>
+
+<div id="gift">
+s
+</div>
+
+</div>
+
+<script>
+
+// Confetti
+
+for(let i=0;i<180;i++){
+
+    let c=document.createElement("div");
+
+    c.className="confetti";
+
+    c.style.left=Math.random()*100+"vw";
+
+    c.style.background=`hsl(${Math.random()*360},100%,60%)`;
+
+    c.style.animationDuration=3+Math.random()*5+"s";
+
+    c.style.opacity=Math.random();
+
+    c.style.transform=`rotate(${Math.random()*360}deg)`;
+
+    document.body.appendChild(c);
+
+}
+
+// Stars
+
+for(let i=0;i<35;i++){
+
+    let s=document.createElement("div");
+
+    s.className="star";
+
+    s.innerHTML="✨";
+
+    s.style.left=Math.random()*100+"vw";
+
+    s.style.top=Math.random()*100+"vh";
+
+    s.style.animationDelay=Math.random()*2+"s";
+
+    document.body.appendChild(s);
+
+}
+
+function openGift(){
+ document.getElementById("gift").style.display="block";
+
+    alert("Error: Target not set");
+}
+
+// Nếu muốn phát nhạc:
+// const audio = new Audio("happybirthday.mp3");
+// audio.play();
+
+</script>
+
+</body>
+</html>
